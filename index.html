@@ -90,15 +90,37 @@
       white-space: pre-line;
       text-align: center;
     }
+
+    .music-button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .music-button-container button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #d1007e;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Dancing Script', cursive;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Otomatik müzik -->
-  <audio autoplay loop>
+  <!-- Müzik -->
+  <audio id="myAudio">
     <source src="hosgeldinbahar.mp3" type="audio/mpeg">
     Tarayıcınız ses çalmayı desteklemiyor.
   </audio>
+
+  <!-- Müzik Butonu -->
+  <div class="music-button-container">
+    <button onclick="toggleAudio()">Müzik Başlat / Durdur</button>
+  </div>
 
   <!-- Fotoğraf -->
   <div class="photo-container">
@@ -121,6 +143,21 @@
     Eşek seni gel de yüzünü görelim. Özledik. Muhtemelen ikimiz de birbirimizi görünce ağlamaya başlayacağız ve ben o günü sabırsızlıkla bekliyorum. <br>
     Bu seferki doğum günü mesajım farklı olsun istedim. Bence güzel oldu, umarım sen de beğenirsin.
   </div>
+
+  <!-- JavaScript: Müzik kontrolü -->
+  <script>
+    const audio = document.getElementById("myAudio");
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 
 </body>
 </html>
